@@ -1,0 +1,130 @@
+{
+  "project_name": "Start Up 13 Landing Page",
+  "theme": "Dark Mode (Tech/Startup Aesthetic)",
+  "language_support": "Bilingual (English/Arabic) with RTL support",
+  "typography": {
+    "fonts": {
+      "english_heading": "Outfit, sans-serif",
+      "english_body": "Inter, sans-serif",
+      "arabic": "Tajawal, sans-serif"
+    },
+    "instructions": "Import 'Outfit' and 'Tajawal' from Google Fonts. Use 'Outfit' for all headings (font-black or font-light for contrast). Use 'Inter' or 'Tajawal' for body text depending on active language. CRITICAL: Never use Inter for headings.",
+    "sizes": {
+      "hero_title": "text-5xl md:text-7xl lg:text-8xl tracking-tighter leading-none",
+      "section_title": "text-4xl md:text-5xl tracking-tight mb-8",
+      "body": "text-lg text-slate-400 leading-relaxed"
+    }
+  },
+  "colors": {
+    "background": {
+      "primary": "#060B12",
+      "secondary": "#0A111C",
+      "tertiary": "#111A27"
+    },
+    "text": {
+      "primary": "#FFFFFF",
+      "secondary": "#94A3B8",
+      "muted": "#64748B"
+    },
+    "accent": {
+      "primary": "#00F0FF",
+      "primary_hover": "#00C3D0",
+      "secondary": "#1D4ED8",
+      "glow": "rgba(0, 240, 255, 0.15)"
+    },
+    "surfaces": {
+      "glass": "bg-[#060B12]/60 backdrop-blur-xl border border-white/10",
+      "card": "bg-white/[0.02] border border-white/5 hover:border-white/20 transition-colors"
+    },
+    "instructions": "Do NOT use pure black (#000000). Use the tinted dark blues provided. For buttons, use the accent primary color."
+  },
+  "layouts": {
+    "rtl_guidelines": [
+      "CRITICAL: Always use logical properties for spacing and alignment. Use 'ms-*' (margin-start), 'me-*' (margin-end), 'ps-*', 'pe-*'.",
+      "Use 'text-start' and 'text-end' instead of 'text-left' and 'text-right'.",
+      "Ensure the HTML root or App wrapper sets 'dir=\"rtl\"' or 'dir=\"ltr\"' based on the language toggle.",
+      "Icons indicating direction (like arrows) must be mirrored in RTL mode using 'rtl:rotate-180'."
+    ],
+    "spacing": [
+      "Use massive spacing for sections: 'py-24 md:py-32'.",
+      "Never cramp content. Use 'gap-8', 'gap-12', or 'gap-16' in flex/grid layouts."
+    ],
+    "grids": [
+      "Bento Grid for Services: grid-cols-1 md:grid-cols-12 gap-6.",
+      "Item 1: col-span-1 md:col-span-8 row-span-2",
+      "Item 2: col-span-1 md:col-span-4 row-span-1",
+      "Item 3: col-span-1 md:col-span-4 row-span-1",
+      "Avoid 100% symmetrical grids. Create visual tension."
+    ]
+  },
+  "visual_enhancers": {
+    "glassmorphism": "Used for the sticky header and floating navigational elements. Apply 'backdrop-blur-xl', 'bg-[#060B12]/80', and a subtle 1px bottom border 'border-white/10'.",
+    "glow_effects": "Use subtle radial gradients behind main components to simulate light emission from the accent colors (e.g., cyan glow behind the hero section).",
+    "noise_texture": "Optionally overlay a very subtle fixed SVG noise texture (opacity 2-3%) across the entire site to remove the digital flatness."
+  },
+  "components": {
+    "buttons": "Pill-shaped or slightly rounded (rounded-full or rounded-lg). Background: primary accent. Text: black. Hover: scale-up slightly and increase glow.",
+    "cards": "Flat, dark, slight glass effect. No heavy box-shadows; rely on 1px borders (border-white/10) to define edges.",
+    "inputs": "Shadcn input components modified to have dark backgrounds (bg-white/5), white text, and an accent-colored ring on focus. NO native HTML inputs.",
+    "language_switcher": "A crisp toggle in the navbar. Must trigger a global state change that updates language strings and the 'dir' attribute on the root."
+  },
+  "motion": {
+    "guidelines": "Use framer-motion for smooth entrance animations. Stagger lists (like Services and Portfolio items).",
+    "hover": "All interactive elements MUST have hover states (e.g., border color changes, slight translation).",
+    "scroll": "Implement smooth scrolling for anchor links."
+  },
+  "image_urls": [
+    {
+      "url": "https://images.unsplash.com/photo-1772050138764-2b1925e0c6b2?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "category": "Hero Background",
+      "description": "Abstract wavy lines on dark background. Use with low opacity or mask to create a tech-vibe hero."
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1771793231904-a516cd3baff4?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "category": "Services/Tech",
+      "description": "Abstract purple strands twisting. Good for 'Custom Software Solutions' card."
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1770734360042-676ef707d022?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "category": "Services/Dev",
+      "description": "Computer screen displaying lines of code. Good for 'Web Development' card."
+    },
+    {
+      "url": "https://images.pexels.com/photos/6804068/pexels-photo-6804068.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "category": "About Us / Team",
+      "description": "Team of developers working in a modern office."
+    },
+    {
+      "url": "https://images.pexels.com/photos/6804071/pexels-photo-6804071.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "category": "About Us / Team",
+      "description": "Group of developers working together."
+    }
+  ],
+  "accessibility": {
+    "contrast": "Ensure all text, especially 'text-slate-400', meets the 4.5:1 WCAG contrast ratio against the dark backgrounds.",
+    "testing": "All interactive elements MUST include a 'data-testid' attribute (e.g., data-testid='lang-switch-button').",
+    "motion": "Respect 'prefers-reduced-motion' for complex animations."
+  },
+  "instructions_to_main_agent": [
+    "1. Setup standard React + Tailwind + Shadcn/ui project.",
+    "2. Add a global language state (Context or Zustand) supporting 'en' and 'ar'.",
+    "3. Map the 'dir' attribute to 'ltr' or 'rtl' dynamically on the main container.",
+    "4. Add fonts 'Outfit' and 'Tajawal' from Google Fonts to index.html or layout.",
+    "5. Use Framer Motion for scroll reveals and hover micro-interactions.",
+    "6. Build the following sections: Hero, About, Services (Bento grid), Portfolio, Team, Testimonials, Contact.",
+    "7. Create a form in the Contact section that saves to the provided MongoDB database schema.",
+    "8. Strictly follow the Logical CSS properties (start/end) for padding, margin, and text-alignment to ensure the RTL flip works automatically without duplicating layouts.",
+    "9. Use Lucide React icons. Flip directional icons when in RTL.",
+    "10. Make sure to use named exports for components and default exports for pages."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Do not apply universal transitions like 'transition: all'. Target specific properties.",
+    "Do not center align the app container text globally.",
+    "Never use AI assistant emoji characters for icons.",
+    "Every interaction needs micro-animations.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Prioritize reusing components from src/components/ui.",
+    "Do not use transparent backgrounds under dropdowns or modals - use the glassmorphism surface specified.",
+    "Use 'sonner' for toast notifications."
+  ]
+}
