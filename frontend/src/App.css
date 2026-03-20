@@ -1,34 +1,95 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* App Container */
+.App {
+  min-height: 100vh;
+  background-color: #060B12;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+/* Smooth scroll for the entire app */
+html {
+  scroll-behavior: smooth;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+/* Prevent horizontal overflow */
+body {
+  overflow-x: hidden;
 }
 
-.App-link {
-    color: #61dafb;
+/* Custom focus styles */
+*:focus-visible {
+  outline: 2px solid #00F0FF;
+  outline-offset: 2px;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+/* RTL support for directional icons */
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+/* Animation utilities */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Gradient border effect */
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #00F0FF, #1D4ED8);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Text balance for headings */
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+/* Paragraph widths */
+p {
+  max-width: 65ch;
+}
+
+section p {
+  margin-inline: auto;
+}
+
+/* Loading state */
+.loading-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
